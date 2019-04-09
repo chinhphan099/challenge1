@@ -3,13 +3,8 @@
 const gulp = require('gulp'),
 	less = require('gulp-less'),
 	autoprefixer = require('gulp-autoprefixer'),
-	minifyCSS = require('gulp-minify-css'),
-	rename = require('gulp-rename'),
 	connect = require('gulp-connect'),
 	clean = require('gulp-clean'),
-	jshint = require('gulp-jshint'),
-	uglify = require('gulp-uglify'),
-	babel = require('gulp-babel'),
 	gutil = require('gulp-util');
 
 // Source folder configuration
@@ -28,38 +23,12 @@ const SRC_FILES = {
 const PUBLIC_DIR = {};
 PUBLIC_DIR.root = './frontend/';
 PUBLIC_DIR.js = PUBLIC_DIR.root + 'pub-assets/js/';
-PUBLIC_DIR.css = PUBLIC_DIR.root + 'pub-assets/css/'; // Update this link, example: Y:/TestCMS/pub-assets/css/
-
-gulp.task('init', function() {
-  //env = 'production';
-});
-gulp.task('initen', function() {
-  //env = 'production';
-});
-
-gulp.task('scripts', () => {
-	return gulp.src([SRC_DIR.js + 'site.js', SRC_DIR.js + 'plugins/*.js'])
-		.pipe(jshint('.jshintrc'))
-		.pipe(jshint.reporter('default'))
-		.on('error', function(err) {
-			let displayErr = gutil.colors.red(err.message);
-			gutil.log(displayErr);
-			this.emit('end');
-		})
-		.pipe(babel({
-      presets: ['babel-preset-es2015'].map(require.resolve)
-    }))
-		.pipe(concat('scripts.js'))
-		.pipe(gulp.dest(PUBLIC_DIR.js))
-});
+PUBLIC_DIR.css = PUBLIC_DIR.root + 'pub-assets/css/';
 
 gulp.task('libs', () => {
 	return gulp.src([SRC_DIR.js + 'jquery-3.2.1.js', SRC_DIR.js + 'plugins/*.js'])
 		.pipe(concat('libs.js'))
 		.pipe(gulp.dest(PUBLIC_DIR.js))
-		// .pipe(rename({ suffix: '.min' }))
-		// .pipe(uglify())
-		// .pipe(gulp.dest(PUBLIC_DIR.js))
 });
 
 gulp.task('less', () =>
@@ -71,9 +40,6 @@ gulp.task('less', () =>
 		}))
 		.pipe(autoprefixer('last 3 versions', 'ie 9'))
 		.pipe(gulp.dest(PUBLIC_DIR.css))
-		// .pipe(minifyCSS({keepBreaks: false}))
-		// .pipe(rename({ suffix: '.min' }))
-		// .pipe(gulp.dest(PUBLIC_DIR.css))
 );
 
 gulp.task('clean', () => {
@@ -96,5 +62,4 @@ gulp.task('watch', () => {
 
 gulp.task('server', ['watch', 'webserver']);
 gulp.task('build', ['less', 'watch']);
-gulp.task('default', ['clean', 'init'], () => { gulp.run(['build', 'server']); });
-gulp.task('en', ['clean', 'initen'], () => { gulp.run(['build', 'server']); });
+gulp.task('default', ['clean'], () => { gulp.run(['build', 'server']); });
