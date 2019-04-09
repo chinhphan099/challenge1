@@ -1,0 +1,75 @@
+@font-face {
+  font-family: "icomoon";
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/icomoon.eot");
+  src: url("../fonts/icomoon.eot?#iefix") format("embedded-opentype"), url("../fonts/icomoon.woff") format("woff"), url("../fonts/icomoon.ttf") format("truetype"), url("../fonts/icomoon.svg#icomoon") format("svg");
+}
+[class^="icon-"],
+[class*=" icon-"] {
+  display: inline-block;
+  font-family: "icomoon";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.icon-stack:before {
+  content: "\e902";
+}
+.icon-dots-three-horizontal:before {
+  content: "\e901";
+}
+.icon-messenger:before {
+  content: "\e900";
+}
+.icon-plus:before {
+  content: "\f218";
+}
+.icon-contacts:before {
+  content: "\f2d9";
+}
+.icon-arrow-dropdown:before {
+  content: "\f35f";
+}
+.icon-done:before {
+  content: "\f383";
+  color: #4b83f2;
+}
+.icon-earth:before {
+  content: "\f38c";
+}
+.icon-help:before {
+  content: "\f446";
+}
+.icon-search-strong:before {
+  content: "\f4a4";
+}
+.icon-star:before {
+  content: "\f4b3";
+}
+.icon-pencil:before {
+  content: "\e905";
+}
+.icon-image:before {
+  content: "\e90d";
+}
+.icon-video-camera:before {
+  content: "\e914";
+}
+.icon-file-text2:before {
+  content: "\e926";
+}
+.icon-bell:before {
+  content: "\e951";
+}
+.icon-redo2:before {
+  content: "\e968";
+}
+.icon-user-plus:before {
+  content: "\e973";
+}
